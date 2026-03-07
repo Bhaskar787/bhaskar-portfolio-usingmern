@@ -53,19 +53,24 @@ export default function AdminLayout({ children }) {
         <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-indigo-900/20 rounded-full blur-[120px]" />
       </div>
 
+      {/* Sidebar - Only show when not on login/register pages */}
       {showSidebar && <AdminSidebar />}
       
+      {/* Main Content */}
       <motion.main
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
-        className="flex-1 p-6 relative"
+        className={`flex-1 p-3 sm:p-4 md:p-6 lg:p-8 relative ${
+          showSidebar ? "md:ml-0" : ""
+        }`}
       >
         <ToastContainer 
           position="top-right" 
           autoClose={3000}
           theme="dark"
           style={{ zIndex: 9999 }}
+          className="w-full max-w-sm"
         />
         {children}
       </motion.main>
