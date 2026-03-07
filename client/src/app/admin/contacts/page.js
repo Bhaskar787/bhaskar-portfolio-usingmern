@@ -142,13 +142,15 @@ export default function ContactsPage() {
                     <div className="h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 rounded-lg sm:rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center text-white shadow-lg flex-shrink-0">
                       <FiUser className="text-lg sm:text-xl" />
                     </div>
-                    <div className="min-w-0">
+                    <div className="min-w-0 flex-1">
                       <h3 className="text-base sm:text-lg md:text-xl font-bold text-white group-hover:text-purple-300 transition-colors truncate">
                         <span>{c.name}</span>
                       </h3>
-                      <p className="text-xs sm:text-sm text-slate-400 flex items-center gap-1 truncate">
-                        <FiMail className="w-3 h-3" />
-                        <span className="truncate">{c.email}</span>
+                      <p className="text-xs sm:text-sm text-slate-400 flex items-center gap-1 truncate overflow-hidden">
+                        <FiMail className="w-3 h-3 flex-shrink-0" />
+                        <span className="truncate overflow-hidden whitespace-nowrap text-ellipsis">
+                          {c.email}
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -164,9 +166,11 @@ export default function ContactsPage() {
                 {/* Contact Details */}
                 <div className="flex items-center gap-3 sm:gap-4 text-xs sm:text-sm text-slate-400 mb-4 sm:mb-5 pb-3 sm:pb-4 border-b border-slate-800">
                   {c.phone && (
-                    <div className="flex items-center gap-1 sm:gap-2">
-                      <FiPhone className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400" />
-                      <span className="truncate">{c.phone}</span>
+                    <div className="flex items-center gap-1 sm:gap-2 overflow-hidden">
+                      <FiPhone className="w-3 h-3 sm:w-4 sm:h-4 text-purple-400 flex-shrink-0" />
+                      <span className="truncate overflow-hidden whitespace-nowrap text-ellipsis">
+                        {c.phone}
+                      </span>
                     </div>
                   )}
                 </div>
