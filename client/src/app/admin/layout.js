@@ -56,12 +56,12 @@ export default function AdminLayout({ children }) {
       {/* Sidebar - Only show when not on login/register pages */}
       {showSidebar && <AdminSidebar />}
       
-      {/* Main Content */}
+      {/* Main Content - Add pt-12 on mobile for menu button */}
       <motion.main
         initial={{ opacity: 0, x: 20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
-        className={`flex-1 p-3 sm:p-4 md:p-6 lg:p-8 relative ${
+        className={`flex-1 p-3 sm:p-4 md:p-6 lg:p-8 pt-12 md:pt-0 relative ${
           showSidebar ? "md:ml-0" : ""
         }`}
       >
