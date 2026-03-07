@@ -4,13 +4,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FiLogOut, FiHome, FiCode, FiMail, FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function AdminSidebar() {
   const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showMenuButton, setShowMenuButton] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const sidebarRef = useRef(null);
 
   // Scroll detection for mobile menu button
   useEffect(() => {
@@ -29,6 +30,13 @@ export default function AdminSidebar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  // Scroll to top when menu opens
+  useEffect(() => {
+    if (isMobileMenuOpen && sidebarRef.current) {
+      sidebarRef.current.scrollTop = 0;
+    }
+  }, [isMobileMenuOpen]);
 
   const handleLogout = () => {
     localStorage.removeItem("adminToken");
@@ -73,7 +81,8 @@ export default function AdminSidebar() {
 
       {/* Sidebar - Desktop: Always visible, Mobile: Toggleable */}
       <motion.div
-        className={`bg-slate-950 text-slate-200 min-h-screen p-5 border-r border-slate-800 relative z-50 ${
+        ref={sidebarRef}
+        className={`bg-slate-950 text-slate-200 min-h-screen p-5 border-r border-slate-800 relative z-50 flex flex-col ${
           isMobileMenuOpen ? "fixed top-0 left-0 w-64" : "hidden md:block md:w-64 md:static"
         }`}
       >
@@ -88,7 +97,7 @@ export default function AdminSidebar() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-10"
+          className="mb-10 flex-shrink-0"
         >
           <h1 className="text-xl sm:text-2xl font-bold">
             <span className="text-white">Admin</span>
@@ -119,12 +128,14 @@ export default function AdminSidebar() {
           ))}
         </nav>
 
-        {/* Logout Button */}
+        {/* Divider */}
+        <div className="my-4 border-t border-slate-800" />
+
+        {/* Logout Button - Right Below Contacts */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="mt-auto pt-6 border-t border-slate-800"
         >
           <button
             onClick={() => {

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import API from "@/lib/axios";
 import { toast } from "react-toastify";
@@ -9,6 +9,7 @@ import { motion } from "framer-motion";
 
 export default function ProjectsPage() {
   const { register, handleSubmit, reset, setValue } = useForm();
+  const formRef = useRef(null);
 
   const [projects, setProjects] = useState([]);
   const [editingId, setEditingId] = useState(null);
@@ -102,6 +103,11 @@ export default function ProjectsPage() {
     setValue("description", project.description);
     setValue("imageUrl", project.imageUrl);
     setValue("githubLink", project.githubLink);
+    
+    // Scroll to form
+    if (formRef.current) {
+      formRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
@@ -130,6 +136,7 @@ export default function ProjectsPage() {
 
         {/* Add Project Form */}
         <motion.form
+          ref={formRef}
           onSubmit={handleSubmit(onSubmit)}
           className="bg-slate-900/50 border border-slate-700 p-4 sm:p-6 rounded-2xl shadow-xl backdrop-blur-sm mb-8 sm:mb-10"
           initial={{ opacity: 0, y: 20 }}
