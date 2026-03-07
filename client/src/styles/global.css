@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background:#f7f7f7;
+  font-family:sans-serif;
+}
+
+/* Navbar */
+
+.navbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  background:black;
+  color:white;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:bold;
+}
+
+.nav-links{
+  display:flex;
+  gap:20px;
+}
+
+.nav-links a{
+  color:white;
+  text-decoration:none;
+}
+
+.nav-links a:hover{
+  color:gray;
+}
+
+/* container */
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:40px;
+}
+
+/* project card */
+
+.project-card{
+  background:white;
+  padding:20px;
+  border-radius:10px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.project-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+
+/* contact form */
+
+.contact-form{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+  max-width:500px;
+}
+
+.contact-form input,
+.contact-form textarea{
+  border:1px solid #ccc;
+  padding:10px;
+  border-radius:6px;
+}
+
+.contact-form button{
+  background:black;
+  color:white;
+  padding:10px;
+  border-radius:6px;
+}
+
+
+.footer {
+  background: #111;
+  color: #fff;
+  padding: 40px 20px;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-links,
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: #fff;
+}
+
+.footer-logo h2 {
+  margin-bottom: 10px;
+}
+
+
+
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    
+    
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
