@@ -1,10 +1,10 @@
 Bhaskar Portfolio (MERN + Next.js)
 - A modern full-stack developer portfolio built using Next.js, React, Node.js, Express.js, and MongoDB.
--🌐 Public portfolio website
--🔐 Admin authentication system
--📁 Project management dashboard
--📬 Contact message management
--⚡ Deployed frontend and backend
+- 🌐 Public portfolio website
+- 🔐 Admin authentication system
+- 📁 Project management dashboard
+- 📬 Contact message management
+- ⚡ Deployed frontend and backend
 
 Live Demo
 Frontend (Deployed on Vercel)
@@ -100,10 +100,10 @@ Authentication
 | JSON Web Token (JWT) | Secure login sessions   |
 | bcrypt               | Encrypt admin passwords |
 
-Installation
--Clone Repository
-git clone https://github.com/Bhaskar787/bhaskar-portfolio-usingmern.git
-cd bhaskar-portfolio-usingmern
+- Installation
+- Clone Repository
+- git clone https://github.com/Bhaskar787/bhaskar-portfolio-usingmern.git
+- cd bhaskar-portfolio-usingmern
 
 
 Install Dependencies
@@ -149,9 +149,9 @@ Deployment
 Screenshots
 | Page            | Image Path                         |
 | --------------- | ---------------------------------- |
-| Home Page       | `<img width="939" height="663" alt="image" src="https://github.com/user-attachments/assets/3edefba5-b9de-45d0-b70a-ce7f044a9be6" />`|
-| Admin Dashboard | `<img width="1887" height="817" alt="image" src="https://github.com/user-attachments/assets/f5628ed8-a8d0-437d-9011-f3b659c55390" />`|
-| Projects Page   | `<img width="1781" height="868" alt="image" src="https://github.com/user-attachments/assets/6b5579f0-e2eb-4c5b-b2b5-c30918637445" />`|
+| Home Page       | <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/3edefba5-b9de-45d0-b70a-ce7f044a9be6" />|
+| Admin Dashboard | <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/f5628ed8-a8d0-437d-9011-f3b659c55390" />|
+| Projects Page   | <img width="300" height="300" alt="image" src="https://github.com/user-attachments/assets/6b5579f0-e2eb-4c5b-b2b5-c30918637445" />|
 
 
 Learning Outcomes
