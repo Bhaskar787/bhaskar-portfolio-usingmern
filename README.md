@@ -1,26 +1,23 @@
-1. Bhaskar Portfolio (MERN + Next.js)
+Bhaskar Portfolio (MERN + Next.js)
 - A modern full-stack developer portfolio built using Next.js, React, Node.js, Express.js, and MongoDB.
-
-- This project includes:
   -🌐 Public portfolio website
   -🔐 Admin authentication system
   -📁 Project management dashboard
   -📬 Contact message management
   -⚡ Deployed frontend and backend
 
-
-2. Live Demo
+Live Demo
 Frontend (Deployed on Vercel)
 <a href="(https://bhaskar-portfolio-usingmern.vercel.app/)" target="_blank">
 <img width="1883" height="776" alt="image" src="https://github.com/user-attachments/assets/5df8d456-c0b6-4fec-b47e-1462e14a2a8a" />
 <a/>
 
-3. Backend API (Deployed on Render)
+Backend API (Deployed on Render)
 - https://bhaskar-portfolio-usingmern.onrender.com/
 
 
-4. Tech Stack
-- Frontend
+Tech Stack
+Frontend
 | Technology     | Purpose                                               |
 | -------------- | ----------------------------------------------------- |
 | Next.js        | React framework for server-side rendering and routing |
@@ -33,7 +30,7 @@ Frontend (Deployed on Vercel)
 
 
 
-- Backend
+Backend
 | Technology     | Purpose                         |
 | -------------- | ------------------------------- |
 | Node.js        | JavaScript runtime for backend  |
@@ -44,7 +41,7 @@ Frontend (Deployed on Vercel)
 | bcrypt         | Password hashing                |
 
 
-5. Project Structure
+Project Structure
 | Folder / File            | Description                                     |
 | ------------------------ | ----------------------------------------------- |
 | **client/**              | Next.js Frontend                                |
@@ -66,8 +63,8 @@ Frontend (Deployed on Vercel)
 | **README.md**            | Project documentation                           |
 
 
-6. Features
-- Portfolio Website
+Features
+Portfolio Website
 | Feature         | Description                         |
 | --------------- | ----------------------------------- |
 | Admin Login     | Secure authentication               |
@@ -78,7 +75,7 @@ Frontend (Deployed on Vercel)
 
 
 
-- Admin Dashboard
+Admin Dashboard
 | Feature         | Description                         |
 | --------------- | ----------------------------------- |
 | Admin Login     | Secure authentication               |
@@ -88,7 +85,7 @@ Frontend (Deployed on Vercel)
 | Manage Contacts | View and delete contact messages    |
 
 
-8. Contact System
+Contact System
 | Function       | Description                                         |
 | -------------- | --------------------------------------------------- |
 | Submit Message | Visitors can send messages through the contact form |
@@ -97,52 +94,51 @@ Frontend (Deployed on Vercel)
 
 
 
-
-9. Authentication
+Authentication
 | Technology           | Usage                   |
 | -------------------- | ----------------------- |
 | JSON Web Token (JWT) | Secure login sessions   |
 | bcrypt               | Encrypt admin passwords |
 
+Installation
+-Clone Repository
+git clone https://github.com/Bhaskar787/bhaskar-portfolio-usingmern.git
+cd bhaskar-portfolio-usingmern
 
-10. Installation
-a. Clone Repository
-- git clone https://github.com/Bhaskar787/bhaskar-portfolio-usingmern.git
-- cd bhaskar-portfolio-usingmern
 
-
-b. Install Dependencies
+Install Dependencies
 | Part     | Command                    |
 | -------- | -------------------------- |
 | Backend  | `cd server && npm install` |
 | Frontend | `cd client && npm install` |
 
 
-c. Environment Variables
+Environment Variables
 | Variable   | Description               |
 | ---------- | ------------------------- |
 | PORT       | Server port               |
 | MONGO_URI  | MongoDB connection string |
 | JWT_SECRET | Secret key for JWT        |
--Example:
   - PORT=5000
   - MONGO_URI=your_mongodb_connection
   - JWT_SECRET=your_secret_key
 
-d. Frontend (client/.env)
+Frontend (client/.env)
+
 | Variable            | Description     |
 | ------------------- | --------------- |
 | NEXT_PUBLIC_API_URL | Backend API URL |
-- Example:
 - NEXT_PUBLIC_API_URL=http://localhost:5000/api
-e. Running the Project
+
+
+Running the Project
 | Service  | Command                          | URL                                            |
 | -------- | -------------------------------- | ---------------------------------------------- |
 | Backend  | `cd server && nodemon server.js` | [http://localhost:5000](http://localhost:5000) |
 | Frontend | `cd client && npm run dev`       | [http://localhost:3000](http://localhost:3000) |
 
 
-11. Deployment
+Deployment
 | Service  | Platform      |
 | -------- | ------------- |
 | Frontend | Vercel        |
@@ -150,7 +146,7 @@ e. Running the Project
 | Database | MongoDB Atlas |
 
 
-12. Screenshots
+Screenshots
 | Page            | Image Path                         |
 | --------------- | ---------------------------------- |
 | Home Page       | <img width="939" height="663" alt="image" src="https://github.com/user-attachments/assets/3edefba5-b9de-45d0-b70a-ce7f044a9be6" />
@@ -161,7 +157,7 @@ e. Running the Project
        |
 
 
-13. Learning Outcomes
+Learning Outcomes
 | Skill                  | Description                       |
 | ---------------------- | --------------------------------- |
 | Full-stack development | Built frontend and backend        |
@@ -171,7 +167,7 @@ e. Running the Project
 | Deployment             | Hosted app on cloud platforms     |
 
 
-14. Contact
+Contact
 | Platform  | Link                                                                     |
 | --------- | ------------------------------------------------------------------------ |
 | GitHub    | [https://github.com/Bhaskar787](https://github.com/Bhaskar787)           |
