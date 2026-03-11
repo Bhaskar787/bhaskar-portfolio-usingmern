@@ -46,27 +46,26 @@ Backend
 
 
 📂 Project Structure
-portfolio
-│
-├── client               # Next.js Frontend
-│   ├── src
-│   │   ├── app
-│   │   ├── components
-│   │   ├── lib
-│   │   └── styles
-│   ├── public
-│   └── package.json
-│
-├── server               # Express Backend
-│   ├── config
-│   ├── controllers
-│   ├── middleware
-│   ├── models
-│   ├── routes
-│   ├── server.js
-│   └── package.json
-│
-└── README.md
+| Folder / File            | Description                                     |
+| ------------------------ | ----------------------------------------------- |
+| **client/**              | Next.js Frontend                                |
+| `client/src/`            | Source files                                    |
+| `client/src/app/`        | Application pages                               |
+| `client/src/components/` | React components                                |
+| `client/src/lib/`        | Utility functions / API calls                   |
+| `client/src/styles/`     | CSS / Tailwind styles                           |
+| `client/public/`         | Public assets (images, icons, etc.)             |
+| `client/package.json`    | Frontend dependencies and scripts               |
+| **server/**              | Express Backend                                 |
+| `server/config/`         | Configuration files (DB, env, etc.)             |
+| `server/controllers/`    | Route controllers / business logic              |
+| `server/middleware/`     | Express middleware (auth, error handling, etc.) |
+| `server/models/`         | Mongoose models / database schemas              |
+| `server/routes/`         | API routes                                      |
+| `server/server.js`       | Main backend entry point                        |
+| `server/package.json`    | Backend dependencies and scripts                |
+| **README.md**            | Project documentation                           |
+
 
 ✨ Features
 👨‍💻 Portfolio Website
@@ -157,12 +156,12 @@ NEXT_PUBLIC_API_URL=http://localhost:5000/api
 📸 Screenshots
 | Page            | Image Path                         |
 | --------------- | ---------------------------------- |
-| Home Page       | `<img width="939" height="663" alt="image" src="https://github.com/user-attachments/assets/3edefba5-b9de-45d0-b70a-ce7f044a9be6" />
-`            |
-| Admin Dashboard | `<img width="1887" height="817" alt="image" src="https://github.com/user-attachments/assets/f5628ed8-a8d0-437d-9011-f3b659c55390" />
-` |
-| Projects Page   | `<img width="1781" height="868" alt="image" src="https://github.com/user-attachments/assets/6b5579f0-e2eb-4c5b-b2b5-c30918637445" />
-`        |
+| Home Page       | <img width="939" height="663" alt="image" src="https://github.com/user-attachments/assets/3edefba5-b9de-45d0-b70a-ce7f044a9be6" />
+           |
+| Admin Dashboard | <img width="1887" height="817" alt="image" src="https://github.com/user-attachments/assets/f5628ed8-a8d0-437d-9011-f3b659c55390" />
+ |
+| Projects Page   | <img width="1781" height="868" alt="image" src="https://github.com/user-attachments/assets/6b5579f0-e2eb-4c5b-b2b5-c30918637445" />
+       |
 
 
 🧠 Learning Outcomes
