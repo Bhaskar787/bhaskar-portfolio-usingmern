@@ -1,8 +1,7 @@
 🚀 Bhaskar Portfolio (MERN + Next.js)
-A modern full-stack developer portfolio built using Next.js, React, Node.js, Express.js, and MongoDB.
+- A modern full-stack developer portfolio built using Next.js, React, Node.js, Express.js, and MongoDB.
 
-This project includes:
-
+- This project includes:
 🌐 Public portfolio website
 🔐 Admin authentication system
 📁 Project management dashboard
@@ -98,7 +97,7 @@ Backend
 
 
 
-messages
+
 🔐 Authentication
 | Technology           | Usage                   |
 | -------------------- | ----------------------- |
@@ -108,8 +107,8 @@ messages
 
 ⚙️ Installation
 1️⃣ Clone Repository
-git clone https://github.com/Bhaskar787/bhaskar-portfolio-usingmern.git
-cd bhaskar-portfolio-usingmern
+- git clone https://github.com/Bhaskar787/bhaskar-portfolio-usingmern.git
+- cd bhaskar-portfolio-usingmern
 
 
 📦 Install Dependencies
@@ -126,17 +125,16 @@ cd bhaskar-portfolio-usingmern
 | MONGO_URI  | MongoDB connection string |
 | JWT_SECRET | Secret key for JWT        |
 Example:
-PORT=5000
-MONGO_URI=your_mongodb_connection
-JWT_SECRET=your_secret_key
+- PORT=5000
+- MONGO_URI=your_mongodb_connection
+- JWT_SECRET=your_secret_key
 
 Frontend (client/.env)
 | Variable            | Description     |
 | ------------------- | --------------- |
 | NEXT_PUBLIC_API_URL | Backend API URL |
-
-Example:
-NEXT_PUBLIC_API_URL=http://localhost:5000/api
+- Example:
+- NEXT_PUBLIC_API_URL=http://localhost:5000/api
 
 ▶️ Running the Project
 | Service  | Command                          | URL                                            |
