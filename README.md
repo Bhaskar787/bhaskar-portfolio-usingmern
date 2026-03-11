@@ -165,10 +165,10 @@ Learning Outcomes
 
 
 Contact
-| Platform  | Link                                                                     |
-| --------- | ------------------------------------------------------------------------ |
-| GitHub    | [https://github.com/Bhaskar787](https://github.com/Bhaskar787)           |
-| Portfolio | [https://your-vercel-url.vercel.app](https://bhaskar-portfolio-usingmern.vercel.app/projects) |
+| Platform  | Link                                                    |
+| --------- | --------------------------------------------------------|
+| GitHub    | https://github.com/Bhaskar787                           |
+| Portfolio | https://bhaskar-portfolio-usingmern.vercel.app/projects |
 
 
 
