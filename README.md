@@ -1,26 +1,26 @@
-🚀 Bhaskar Portfolio (MERN + Next.js)
+1. Bhaskar Portfolio (MERN + Next.js)
 - A modern full-stack developer portfolio built using Next.js, React, Node.js, Express.js, and MongoDB.
 
 - This project includes:
-🌐 Public portfolio website
-🔐 Admin authentication system
-📁 Project management dashboard
-📬 Contact message management
-⚡ Deployed frontend and backend
+  -🌐 Public portfolio website
+  -🔐 Admin authentication system
+  -📁 Project management dashboard
+  -📬 Contact message management
+  -⚡ Deployed frontend and backend
 
 
-Live Demo
+2. Live Demo
 Frontend (Deployed on Vercel)
 <a href="(https://bhaskar-portfolio-usingmern.vercel.app/)" target="_blank">
 <img width="1883" height="776" alt="image" src="https://github.com/user-attachments/assets/5df8d456-c0b6-4fec-b47e-1462e14a2a8a" />
 <a/>
 
-Backend API (Deployed on Render)
+3. Backend API (Deployed on Render)
 - https://bhaskar-portfolio-usingmern.onrender.com/
 
 
-🛠️ Tech Stack
-Frontend
+4. Tech Stack
+- Frontend
 | Technology     | Purpose                                               |
 | -------------- | ----------------------------------------------------- |
 | Next.js        | React framework for server-side rendering and routing |
@@ -33,7 +33,7 @@ Frontend
 
 
 
-Backend
+- Backend
 | Technology     | Purpose                         |
 | -------------- | ------------------------------- |
 | Node.js        | JavaScript runtime for backend  |
@@ -44,7 +44,7 @@ Backend
 | bcrypt         | Password hashing                |
 
 
-📂 Project Structure
+5. Project Structure
 | Folder / File            | Description                                     |
 | ------------------------ | ----------------------------------------------- |
 | **client/**              | Next.js Frontend                                |
@@ -66,8 +66,8 @@ Backend
 | **README.md**            | Project documentation                           |
 
 
-✨ Features
-👨‍💻 Portfolio Website
+6. Features
+- Portfolio Website
 | Feature         | Description                         |
 | --------------- | ----------------------------------- |
 | Admin Login     | Secure authentication               |
@@ -78,7 +78,7 @@ Backend
 
 
 
-🔐 Admin Dashboard
+- Admin Dashboard
 | Feature         | Description                         |
 | --------------- | ----------------------------------- |
 | Admin Login     | Secure authentication               |
@@ -88,7 +88,7 @@ Backend
 | Manage Contacts | View and delete contact messages    |
 
 
-📬 Contact System
+8. Contact System
 | Function       | Description                                         |
 | -------------- | --------------------------------------------------- |
 | Submit Message | Visitors can send messages through the contact form |
@@ -98,52 +98,51 @@ Backend
 
 
 
-🔐 Authentication
+9. Authentication
 | Technology           | Usage                   |
 | -------------------- | ----------------------- |
 | JSON Web Token (JWT) | Secure login sessions   |
 | bcrypt               | Encrypt admin passwords |
 
 
-⚙️ Installation
-1️⃣ Clone Repository
+10. Installation
+a. Clone Repository
 - git clone https://github.com/Bhaskar787/bhaskar-portfolio-usingmern.git
 - cd bhaskar-portfolio-usingmern
 
 
-📦 Install Dependencies
+b. Install Dependencies
 | Part     | Command                    |
 | -------- | -------------------------- |
 | Backend  | `cd server && npm install` |
 | Frontend | `cd client && npm install` |
 
 
-🔑 Environment Variables
+c. Environment Variables
 | Variable   | Description               |
 | ---------- | ------------------------- |
 | PORT       | Server port               |
 | MONGO_URI  | MongoDB connection string |
 | JWT_SECRET | Secret key for JWT        |
-Example:
-- PORT=5000
-- MONGO_URI=your_mongodb_connection
-- JWT_SECRET=your_secret_key
+-Example:
+  - PORT=5000
+  - MONGO_URI=your_mongodb_connection
+  - JWT_SECRET=your_secret_key
 
-Frontend (client/.env)
+d. Frontend (client/.env)
 | Variable            | Description     |
 | ------------------- | --------------- |
 | NEXT_PUBLIC_API_URL | Backend API URL |
 - Example:
 - NEXT_PUBLIC_API_URL=http://localhost:5000/api
-
-▶️ Running the Project
+e. Running the Project
 | Service  | Command                          | URL                                            |
 | -------- | -------------------------------- | ---------------------------------------------- |
 | Backend  | `cd server && nodemon server.js` | [http://localhost:5000](http://localhost:5000) |
 | Frontend | `cd client && npm run dev`       | [http://localhost:3000](http://localhost:3000) |
 
 
-🚀 Deployment
+11. Deployment
 | Service  | Platform      |
 | -------- | ------------- |
 | Frontend | Vercel        |
@@ -151,7 +150,7 @@ Frontend (client/.env)
 | Database | MongoDB Atlas |
 
 
-📸 Screenshots
+12. Screenshots
 | Page            | Image Path                         |
 | --------------- | ---------------------------------- |
 | Home Page       | <img width="939" height="663" alt="image" src="https://github.com/user-attachments/assets/3edefba5-b9de-45d0-b70a-ce7f044a9be6" />
@@ -162,7 +161,7 @@ Frontend (client/.env)
        |
 
 
-🧠 Learning Outcomes
+13. Learning Outcomes
 | Skill                  | Description                       |
 | ---------------------- | --------------------------------- |
 | Full-stack development | Built frontend and backend        |
@@ -172,7 +171,7 @@ Frontend (client/.env)
 | Deployment             | Hosted app on cloud platforms     |
 
 
-📬 Contact
+14. Contact
 | Platform  | Link                                                                     |
 | --------- | ------------------------------------------------------------------------ |
 | GitHub    | [https://github.com/Bhaskar787](https://github.com/Bhaskar787)           |
