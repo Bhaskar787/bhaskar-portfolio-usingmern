@@ -8,7 +8,7 @@ Bhaskar Portfolio (MERN + Next.js)
 
 Live Demo
 Frontend (Deployed on Vercel)
-<a href="(https://bhaskar-portfolio-usingmern.vercel.app/)" target="_blank">
+<a href="https://bhaskar-portfolio-usingmern.vercel.app/" target="_blank">
 <img width="800" height="800" alt="image" src="https://github.com/user-attachments/assets/5df8d456-c0b6-4fec-b47e-1462e14a2a8a" />
 <a/>
 
