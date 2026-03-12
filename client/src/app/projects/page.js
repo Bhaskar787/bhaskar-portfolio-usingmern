@@ -24,58 +24,62 @@ export default function Projects() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchProjects = async () => {
+    const fetchProjects = async (initial = false) => {
       try {
-        setLoading(true);
+        if (initial) setLoading(true);
         const res = await API.get("/projects");
         setProjects(res.data);
       } catch (err) {
         console.error("Failed to fetch projects:", err);
       } finally {
-        setLoading(false);
+        if (initial) setLoading(false);
       }
     };
 
-    fetchProjects();
+    fetchProjects(true);
+
+    // Refresh data every 60 seconds
+    const interval = setInterval(() => fetchProjects(), 6000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
-<div className="min-h-screen pt-24 bg-slate-950 text-slate-200 selection:bg-purple-500 selection:text-white overflow-x-hidden">
-       {/* Background Ambient Glow */}
-           <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
-             <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-[120px]" />
-             <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-indigo-900/20 rounded-full blur-[120px]" />
-           </div>
-     
-           <div className="max-w-7xl mx-auto px-4 pt-32 pb-20">
-             
-             {/* Header */}
-             <motion.div
-               initial="hidden"
-               animate="visible"
-               variants={staggerContainer}
-               className="text-center mb-20"
-             >
-               <motion.div variants={fadeInUp} className="inline-block mb-4">
-                 <span className="px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-sm font-medium tracking-wide">
-                   Portfolio
-                 </span>
-               </motion.div>
-               
-               <motion.h1 
-                 variants={fadeInUp}
-                 className="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight"
-               >
-                 My <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Projects</span>
-               </motion.h1>
-               
-               <motion.p 
-                 variants={fadeInUp}
-                 className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed"
-               >
-                 A showcase of my recent work and personal projects built with passion and creativity.
-               </motion.p>
-             </motion.div>
+    <div className="min-h-screen pt-24 bg-slate-950 text-slate-200 selection:bg-purple-500 selection:text-white overflow-x-hidden">
+      {/* Background Ambient Glow */}
+      <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-indigo-900/20 rounded-full blur-[120px]" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 pt-32 pb-20">
+        {/* Header */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="text-center mb-20"
+        >
+          <motion.div variants={fadeInUp} className="inline-block mb-4">
+            <span className="px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-300 text-sm font-medium tracking-wide">
+              Portfolio
+            </span>
+          </motion.div>
+
+          <motion.h1
+            variants={fadeInUp}
+            className="text-5xl md:text-6xl font-extrabold text-white mb-6 tracking-tight"
+          >
+            My <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Projects</span>
+          </motion.h1>
+
+          <motion.p
+            variants={fadeInUp}
+            className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed"
+          >
+            A showcase of my recent work and personal projects built with passion and creativity.
+          </motion.p>
+        </motion.div>
 
         {/* Projects Grid */}
         <motion.div
@@ -187,7 +191,6 @@ export default function Projects() {
             ))
           )}
         </motion.div>
-
       </div>
     </div>
   );
