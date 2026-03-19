@@ -15,7 +15,7 @@ export default function Footer() {
 
   const socialLinks = [
     { icon: <FiGithub size={24} />, href: "https://github.com/Bhaskar787", label: "GitHub" },
-    { icon: <FiLinkedin size={24} />, href: "https://linkedin.com/", label: "LinkedIn" },
+    { icon: <FiLinkedin size={24} />, href: "https://www.linkedin.com/in/bhaskar-budha-1a58b83b6", label: "LinkedIn" },
     { icon: <FiTwitter size={24} />, href: "https://twitter.com/", label: "Twitter" },
     { icon: <FiMail size={24} />, href: "mailto:budhabhaskar11@gmail.com?subject=Hello Bhaskar&body=I want to contact you", label: "Email" },
   ];

@@ -99,7 +99,7 @@ export default function Home() {
               className="mt-12 flex justify-center gap-6 text-slate-400"
             >
               <a href="https://github.com/Bhaskar787" className="hover:text-purple-400 transition-colors text-2xl"><FiGithub /></a>
-              <a href="#" className="hover:text-purple-400 transition-colors text-2xl"><FiLinkedin /></a>
+              <a href="https://www.linkedin.com/in/bhaskar-budha-1a58b83b6" className="hover:text-purple-400 transition-colors text-2xl"><FiLinkedin /></a>
             <a
   href="mailto:budhabhaskar11@gmail.com?subject=Hello Bhaskar&body=I want to contact you."
   className="hover:text-purple-400 transition-colors text-2xl"
