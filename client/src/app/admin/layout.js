@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react"; // Add useMemo
 import AdminSidebar from "@/components/AdminSidebar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,9 +13,10 @@ export default function AdminLayout({ children }) {
   const [authChecked, setAuthChecked] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const isLoginPage = pathname === "/admin/login";
-  const isRegisterPage = pathname === "/admin/register";
-  const showSidebar = !isLoginPage && !isRegisterPage;
+  // ✅ Memoize derived state
+  const isLoginPage = useMemo(() => pathname === "/admin/login", [pathname]);
+  const isRegisterPage = useMemo(() => pathname === "/admin/register", [pathname]);
+  const showSidebar = useMemo(() => !isLoginPage && !isRegisterPage, [isLoginPage, isRegisterPage]);
 
   useEffect(() => {
     const token = localStorage.getItem("adminToken");
@@ -35,7 +36,7 @@ export default function AdminLayout({ children }) {
         router.replace("/admin/login");
       }
     }
-  }, [pathname, router, isLoginPage, isRegisterPage]);
+  }, [router, isLoginPage, isRegisterPage]); // ✅ Now stable dependencies
 
   if (!authChecked) {
     return (
@@ -53,7 +54,7 @@ export default function AdminLayout({ children }) {
         <div className="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-indigo-900/20 rounded-full blur-[120px]" />
       </div>
 
-      {/* Sidebar - Only show when not on login/register pages */}
+      {/* Sidebar */}
       {showSidebar && <AdminSidebar />}
       
       {/* Main Content */}
