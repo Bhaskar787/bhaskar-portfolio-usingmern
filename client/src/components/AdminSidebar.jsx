@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect, useRef } from "react"; // ✅ Removed useMemo, useCallback
 import { FiLogOut, FiHome, FiCode, FiMail, FiMenu, FiX } from "react-icons/fi";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
 
 export default function AdminSidebar() {
   const router = useRouter();
@@ -12,32 +12,6 @@ export default function AdminSidebar() {
   const [showMenuButton, setShowMenuButton] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const sidebarRef = useRef(null);
-
-  // ✅ DIRECT nav items - No useMemo needed
-  const navItems = [
-    { href: "/admin/dashboard", icon: <FiHome size={20} />, label: "Dashboard" },
-    { href: "/admin/projects", icon: <FiCode size={20} />, label: "Projects" },
-    { href: "/admin/contacts", icon: <FiMail size={20} />, label: "Contacts" },
-  ];
-
-  // ✅ DIRECT event handlers - No useCallback needed
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(prev => !prev);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem("adminToken");
-    router.replace("/admin/login"); 
-  };
-
-  const handleLogoutClick = () => {
-    handleLogout();
-    setIsMobileMenuOpen(false);
-  };
 
   // Scroll detection for mobile menu button
   useEffect(() => {
@@ -64,6 +38,17 @@ export default function AdminSidebar() {
     }
   }, [isMobileMenuOpen]);
 
+  const handleLogout = () => {
+    localStorage.removeItem("adminToken");
+    router.replace("/admin/login"); 
+  };
+
+  const navItems = [
+    { href: "/admin/dashboard", icon: <FiHome size={20} />, label: "Dashboard" },
+    { href: "/admin/projects", icon: <FiCode size={20} />, label: "Projects" },
+    { href: "/admin/contacts", icon: <FiMail size={20} />, label: "Contacts" },
+  ];
+
   return (
     <>
       {/* Mobile Menu Toggle Button - Only on mobile */}
@@ -73,7 +58,7 @@ export default function AdminSidebar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            onClick={toggleMobileMenu}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="fixed top-4 left-4 z-50 p-2 bg-slate-900 border border-slate-700 rounded-lg text-slate-300 md:hidden hover:text-white hover:bg-slate-800 transition-all"
           >
             {isMobileMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -88,7 +73,7 @@ export default function AdminSidebar() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={closeMobileMenu}
+            onClick={() => setIsMobileMenuOpen(false)}
             className="fixed inset-0 bg-black/50 z-40 md:hidden"
           />
         )}
@@ -131,7 +116,7 @@ export default function AdminSidebar() {
             >
               <Link
                 href={item.href}
-                onClick={closeMobileMenu}
+                onClick={() => setIsMobileMenuOpen(false)}
                 className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:text-purple-400 hover:bg-purple-500/10 transition-all duration-200 group"
               >
                 <span className="group-hover:scale-110 transition-transform">
@@ -153,7 +138,10 @@ export default function AdminSidebar() {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <button
-            onClick={handleLogoutClick}
+            onClick={() => {
+              handleLogout();
+              setIsMobileMenuOpen(false);
+            }}
             className="flex items-center gap-3 px-4 py-3 rounded-lg text-slate-300 hover:text-red-400 hover:bg-red-500/10 transition-all duration-200 w-full group"
           >
             <FiLogOut size={20} className="group-hover:scale-110 transition-transform" />

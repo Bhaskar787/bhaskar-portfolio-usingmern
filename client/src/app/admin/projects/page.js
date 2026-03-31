@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react"; // ✅ Removed useCallback, useMemo
+import { useEffect, useState, useRef, useCallback, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import API from "@/lib/axios";
 import { toast } from "react-toastify";
@@ -25,8 +25,8 @@ export default function ProjectsPage() {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  // ✅ DIRECT fetch function - No useCallback needed
-  const fetchProjects = async () => {
+  // ✅ Memoized fetch function
+  const fetchProjects = useCallback(async () => {
     try {
       setProjectsLoading(true);
       const res = await API.get("/projects");
@@ -37,15 +37,15 @@ export default function ProjectsPage() {
     } finally {
       setProjectsLoading(false);
     }
-  };
+  }, []);
 
   // ✅ Initial fetch
   useEffect(() => {
     fetchProjects();
-  }, []); // ✅ Empty deps - runs once
+  }, [fetchProjects]);
 
-  // ✅ DIRECT submit handler - No useCallback needed
-  const onSubmit = async (data) => {
+  // ✅ Memoized submit handler
+  const onSubmit = useCallback(async (data) => {
     try {
       setFormLoading(true);
       if (editingId) {
@@ -65,10 +65,10 @@ export default function ProjectsPage() {
     } finally {
       setFormLoading(false);
     }
-  };
+  }, [editingId, reset, fetchProjects]);
 
-  // ✅ DIRECT delete handler - No useCallback needed
-  const confirmDelete = (id) => {
+  // ✅ Memoized delete handler
+  const confirmDelete = useCallback((id) => {
     toast(
       ({ closeToast }) => (
         <div className="bg-slate-900 border border-slate-700 p-4 sm:p-5 rounded-xl shadow-xl w-full max-w-sm mx-4">
@@ -104,10 +104,10 @@ export default function ProjectsPage() {
         closeOnClick: false,
       }
     );
-  };
+  }, [fetchProjects]);
 
-  // ✅ DIRECT edit handler - No useCallback needed
-  const editProject = (project) => {
+  // ✅ Memoized edit handler (fixes React #310)
+  const editProject = useCallback((project) => {
     setEditingId(project._id);
     setValue("title", project.title);
     setValue("description", project.description);
@@ -116,10 +116,10 @@ export default function ProjectsPage() {
     
     // Smooth scroll to form
     formRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  }, [setValue]);
 
-  // ✅ DIRECT projects list - No useMemo needed
-  const projectsList = projects;
+  // ✅ Memoized projects list
+  const projectsList = useMemo(() => projects, [projects]);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 p-3 sm:p-4 md:p-6 lg:p-8 relative overflow-x-hidden">
@@ -431,7 +431,7 @@ export default function ProjectsPage() {
                               <FiEdit2 size={16} />
                               Edit
                             </button>
-                                                       <button
+                                                        <button
                               onClick={() => confirmDelete(project._id)}
                               className="bg-red-500/20 hover:bg-red-500/30 text-red-400 px-4 py-2 rounded-lg transition-colors flex items-center gap-2 text-sm border border-red-500/30"
                             >

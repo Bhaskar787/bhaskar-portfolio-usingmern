@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { useState } from "react"; // ✅ Removed useCallback
+import { useState } from "react";
 import API from "@/lib/axios";
 import { toast } from "react-toastify";
 import { FiUser, FiMail, FiLock, FiEye, FiEyeOff, FiUserPlus } from "react-icons/fi";
@@ -14,7 +14,6 @@ export default function AdminRegister() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  // ✅ DIRECT FUNCTIONS - No useCallback needed (simpler & faster!)
   const onSubmit = async (data) => {
     try {
       setLoading(true);
@@ -33,11 +32,6 @@ export default function AdminRegister() {
     } finally {
       setLoading(false);
     }
-  };
-
-  // ✅ INLINE HANDLER - No useCallback needed
-  const togglePassword = () => {
-    setShowPassword(prev => !prev);
   };
 
   return (
@@ -148,7 +142,7 @@ export default function AdminRegister() {
                 />
                 <button
                   type="button"
-                  onClick={togglePassword}  // ✅ Now direct function
+                  onClick={() => setShowPassword(!showPassword)}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition-colors"
                 >
                   {showPassword ? <FiEyeOff /> : <FiEye />}
