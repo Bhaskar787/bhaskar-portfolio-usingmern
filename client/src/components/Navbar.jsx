@@ -43,15 +43,14 @@ export default function Navbar() {
                 }`}
               >
                 {link.name}
-                {isActive(link.path) && (
-                  <motion.div
-                    layoutId="navbar-underline"
-                    className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-500"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                  />
-                )}
+                <motion.div
+                  className="absolute bottom-0 left-0 w-full h-0.5 bg-purple-500"
+                  initial={false}
+                  animate={{
+                    opacity: isActive(link.path) ? 1 : 0,
+                    transition: { duration: 0.2 }
+                  }}
+                />
               </Link>
             ))}
           </div>
