@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import API from "@/lib/axios";
 import { toast } from "react-toastify";
 import { FiEdit2, FiTrash2, FiMail, FiPhone, FiMessageSquare, FiUser, FiRefreshCw } from "react-icons/fi";
@@ -11,8 +11,7 @@ export default function ContactsPage() {
   const [loading, setLoading] = useState(true);
   const [deletingId, setDeletingId] = useState(null);
 
-  // ✅ Memoized fetch function (prevents React #310)
-  const fetchContacts = useCallback(async () => {
+  const fetchContacts = async () => {
     try {
       setLoading(true);
       const res = await API.get("/contact");
@@ -23,15 +22,13 @@ export default function ContactsPage() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  };
 
-  // ✅ Initial fetch
   useEffect(() => {
     fetchContacts();
-  }, [fetchContacts]);
+  }, []);
 
-  // ✅ Memoized delete handler (prevents React #310)
-  const deleteContact = useCallback((id) => {
+  const deleteContact = (id) => {
     setDeletingId(id);
     toast(
       ({ closeToast }) => (
@@ -90,15 +87,13 @@ export default function ContactsPage() {
         closeOnClick: false,
       }
     );
-  }, [deletingId]);
+  };
 
-  // ✅ Memoized refresh handler
-  const handleRefresh = useCallback(() => {
+  const handleRefresh = () => {
     fetchContacts();
     toast.info("Contacts refreshed");
-  }, [fetchContacts]);
+  };
 
-  // Loading Skeleton
   const LoadingSkeleton = () => (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
       {[...Array(6)].map((_, index) => (
@@ -124,7 +119,6 @@ export default function ContactsPage() {
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 p-3 sm:p-4 md:p-8 relative overflow-x-hidden">
-      
       {/* Background Ambient Glow */}
       <div className="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-purple-900/20 rounded-full blur-[120px]" />
@@ -132,7 +126,6 @@ export default function ContactsPage() {
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
-        
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
@@ -154,7 +147,7 @@ export default function ContactsPage() {
             whileTap={{ scale: 0.95 }}
             className="flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-300 px-4 py-2 rounded-xl transition-all font-medium shadow-lg text-xs sm:text-sm whitespace-nowrap"
           >
-            <FiRefreshCw size={16} className="animate-spin" />
+            <FiRefreshCw size={16} />
             Refresh
           </motion.button>
         </motion.div>

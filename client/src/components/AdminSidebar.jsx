@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { FiLogOut, FiHome, FiCode, FiMail, FiMenu, FiX } from "react-icons/fi";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect, useRef, useMemo, useCallback } from "react";
+import { useState, useEffect, useRef } from "react"; // ✅ Removed useMemo, useCallback
+import { FiLogOut, FiHome, FiCode, FiMail, FiMenu, FiX } from "react-icons/fi";
 
 export default function AdminSidebar() {
   const router = useRouter();
@@ -13,26 +13,31 @@ export default function AdminSidebar() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const sidebarRef = useRef(null);
 
-  // ✅ Memoized nav items
-  const navItems = useMemo(() => [
+  // ✅ DIRECT nav items - No useMemo needed
+  const navItems = [
     { href: "/admin/dashboard", icon: <FiHome size={20} />, label: "Dashboard" },
     { href: "/admin/projects", icon: <FiCode size={20} />, label: "Projects" },
     { href: "/admin/contacts", icon: <FiMail size={20} />, label: "Contacts" },
-  ], []);
+  ];
 
-  // ✅ Memoized event handlers
-  const toggleMobileMenu = useCallback(() => {
+  // ✅ DIRECT event handlers - No useCallback needed
+  const toggleMobileMenu = () => {
     setIsMobileMenuOpen(prev => !prev);
-  }, []);
+  };
 
-  const closeMobileMenu = useCallback(() => {
+  const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
-  }, []);
+  };
 
-  const handleLogoutClick = useCallback(() => {
+  const handleLogout = () => {
+    localStorage.removeItem("adminToken");
+    router.replace("/admin/login"); 
+  };
+
+  const handleLogoutClick = () => {
     handleLogout();
     setIsMobileMenuOpen(false);
-  }, []);
+  };
 
   // Scroll detection for mobile menu button
   useEffect(() => {
@@ -58,11 +63,6 @@ export default function AdminSidebar() {
       sidebarRef.current.scrollTop = 0;
     }
   }, [isMobileMenuOpen]);
-
-  const handleLogout = () => {
-    localStorage.removeItem("adminToken");
-    router.replace("/admin/login"); 
-  };
 
   return (
     <>

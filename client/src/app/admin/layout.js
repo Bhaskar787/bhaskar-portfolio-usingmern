@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"; // ✅ Removed useMemo
 import AdminSidebar from "@/components/AdminSidebar";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -13,7 +13,7 @@ export default function AdminLayout({ children }) {
   const [authChecked, setAuthChecked] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // Compute directly without useMemo
+  // ✅ DIRECT COMPUTATION - No useMemo needed (faster!)
   const isLoginPage = pathname === "/admin/login";
   const isRegisterPage = pathname === "/admin/register";
   const showSidebar = !isLoginPage && !isRegisterPage;
@@ -36,7 +36,7 @@ export default function AdminLayout({ children }) {
         router.replace("/admin/login");
       }
     }
-  }, [router, isLoginPage, isRegisterPage]);
+  }, [router, isLoginPage, isRegisterPage]); // ✅ Still stable dependencies
 
   if (!authChecked) {
     return (

@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { useState, useCallback } from "react";
+import { useState } from "react"; // ✅ Removed useCallback
 import API from "@/lib/axios";
 import { toast } from "react-toastify";
 import { FiMail, FiLock, FiLogIn, FiEye, FiEyeOff } from "react-icons/fi";
@@ -16,8 +16,8 @@ export default function AdminLogin() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  // ✅ Memoized submit handler (prevents React #310)
-  const onSubmit = useCallback(async (data) => {
+  // ✅ DIRECT submit handler - No useCallback needed (react-hook-form handles it)
+  const onSubmit = async (data) => {
     try {
       setLoading(true);
       const res = await API.post("/auth/login", data);
@@ -39,12 +39,12 @@ export default function AdminLogin() {
     } finally {
       setLoading(false);
     }
-  }, [router]);
+  };
 
-  // ✅ Memoized password toggle
-  const togglePassword = useCallback(() => {
+  // ✅ DIRECT password toggle - No useCallback needed
+  const togglePassword = () => {
     setShowPassword(prev => !prev);
-  }, []);
+  };
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 p-4 sm:p-6 relative overflow-hidden flex items-center justify-center">
@@ -135,7 +135,7 @@ export default function AdminLogin() {
                 />
                 <button
                   type="button"
-                  onClick={togglePassword}
+                  onClick={togglePassword}  // ✅ Direct function reference
                   disabled={loading}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition-colors disabled:opacity-50"
                   aria-label={showPassword ? "Hide password" : "Show password"}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react"; // ✅ Removed useCallback
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import API from "@/lib/axios";
@@ -17,8 +17,8 @@ export default function Dashboard() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // ✅ Memoized fetch function (prevents React #310)
-  const fetchDashboardData = useCallback(async () => {
+  // ✅ DIRECT fetch function - No useCallback needed
+  const fetchDashboardData = async () => {
     try {
       setLoading(true);
       setError(null);
@@ -45,26 +45,26 @@ export default function Dashboard() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  };
 
-  // ✅ Initial data fetch
+  // ✅ Initial data fetch - Empty deps = runs once
   useEffect(() => {
     fetchDashboardData();
-  }, [fetchDashboardData]);
+  }, []);
 
-  // ✅ Memoized navigation handler
-  const handleNavigate = useCallback((path) => {
+  // ✅ DIRECT navigation handler - No useCallback needed
+  const handleNavigate = (path) => {
     router.push(path);
-  }, [router]);
+  };
 
-  // ✅ Memoized logout handler
-  const handleLogout = useCallback(() => {
+  // ✅ DIRECT logout handler - No useCallback needed
+  const handleLogout = () => {
     localStorage.removeItem("adminToken");
     toast.success("Logged out successfully");
     setTimeout(() => {
       router.replace("/admin/login");
     }, 1500);
-  }, [router]);
+  };
 
   // Loading Skeleton Component
   const LoadingSkeleton = () => (
