@@ -12,6 +12,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+
 /* Routes */
 app.use("/api/projects", require("./routes/projectRoutes"));
 app.use("/api/contact", require("./routes/contactRoutes"));

@@ -2,7 +2,7 @@
 
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import API from "@/lib/axios";
 import { toast } from "react-toastify";
 import { FiUser, FiMail, FiLock, FiEye, FiEyeOff, FiUserPlus } from "react-icons/fi";
@@ -14,7 +14,8 @@ export default function AdminRegister() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const onSubmit = async (data) => {
+  // ✅ Memoized submit handler (prevents React #310)
+  const onSubmit = useCallback(async (data) => {
     try {
       setLoading(true);
       await API.post("/auth/register", data);
@@ -32,7 +33,12 @@ export default function AdminRegister() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [router, reset]);
+
+  // ✅ Memoized password toggle
+  const togglePassword = useCallback(() => {
+    setShowPassword(prev => !prev);
+  }, []);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 p-6 relative overflow-hidden flex items-center justify-center">
@@ -142,7 +148,7 @@ export default function AdminRegister() {
                 />
                 <button
                   type="button"
-                  onClick={() => setShowPassword(!showPassword)}
+                  onClick={togglePassword}
                   className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white transition-colors"
                 >
                   {showPassword ? <FiEyeOff /> : <FiEye />}
