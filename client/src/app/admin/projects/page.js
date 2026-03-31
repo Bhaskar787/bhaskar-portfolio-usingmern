@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef, useCallback, useMemo } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { useForm } from "react-hook-form";
 import API from "@/lib/axios";
 import { toast } from "react-toastify";
@@ -119,7 +119,7 @@ export default function ProjectsPage() {
   }, [setValue]);
 
   // ✅ Memoized projects list
-  const projectsList = useMemo(() => projects, [projects]);
+  const projectsList = projects;
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 p-3 sm:p-4 md:p-6 lg:p-8 relative overflow-x-hidden">
